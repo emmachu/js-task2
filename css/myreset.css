@@ -1,0 +1,76 @@
+/*基于以下总结得出，以及自己现阶段对于各元素的使用和理解，之后会不断更新*/
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+/*
+KISSY CSS Reset
+理念：清除和重置是紧密不可分的
+特色：1.适应中文 2.基于最新主流浏览器
+维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
+*/
+/**张鑫旭**/
+
+@charset="utf-8";
+html{
+	font-size: 62.5%;
+	line-height: 1.5;
+}
+body{
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+div,
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	background-color: transparent; /* 1 */
+    -webkit-text-decoration-skip: objects; /* 2 */
+}
+img{border: 0;}
+a img{border: 0;}
+
+q:before, q:after { content: ''; }
+
+/*Add the correct display in IE 9-.*/
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/*Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.*/
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/*Hidden==============================================================*/
+
+/*Add the correct display in IE 10-.*/
+
+[hidden] {
+  display: none;
+}
+button,
+[type="submit"],
+[type="reset"],
+[type="button"] {
+	//border: none;
+	outline: none;
+}

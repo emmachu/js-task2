@@ -1,0 +1,119 @@
+body{
+	background-color: #ccc;
+}
+.all{
+	max-width: 375px;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+.header{
+	width: 100%;
+	height: 5rem;
+	background-color: #29bde0;
+	margin: 0;
+}
+.header2{
+	padding: 0;
+}
+.header img{
+	width: 2rem;
+	height: 1.5rem;
+	margin-left: 2rem;
+	margin-top: 2rem;
+}
+.news{
+	width: 90%;
+	height: 6rem;
+	background-color: #fff;
+	margin: 2rem auto;
+	text-align: center;
+	line-height: 6rem;
+	border:1px solid #cecece;
+}
+.news p{
+	font-size: 1.4em;
+	letter-spacing: .15rem;
+	color: #9a9a9a;
+	background: url(img/move.png) no-repeat;
+	background-position: right center;
+	
+}
+a:active{
+	text-decoration: underline;
+}
+.move{
+	display: inline-block;
+	float: left;
+}
+.main{
+	width: 90%;
+	background-color: #fff;
+	margin: 0 auto;
+	border: 1px solid #cecece;
+	position: relative;
+}
+
+.title1{
+	text-align: center;
+	width: 100%;
+	height: 5rem;
+	line-height: 5rem;
+	margin: 0 auto;
+	border-bottom: 1px solid #fbb435;
+}
+.title1 p{
+	font-size: 2rem;
+	letter-spacing: .15rem;
+	margin: 0;padding: 0;
+	color: #fbb435;
+}
+.title{
+	margin: 0;padding: 0;
+}
+.game-item{
+	width: 100%;
+	height: 10rem;
+	margin: 0;padding: 0;
+}
+h4{
+	margin: 0;
+	color: #9a9a9a;
+}
+.button{
+	width: 70%;
+	height: 60%;
+	margin: 2rem 0 2rem 0;
+	border-radius: 0;
+	background-color: #69d1e9;
+	font-size: 2.5rem;
+	color: #fff;
+	letter-spacing: .2rem;
+}
+.footer{
+	text-align: center;
+	width: 90%;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0 auto;
+	background-color: #fff;
+}
+.circle{
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	background: #f0f0f0;
+	border-radius: 50%;
+	margin-left: .5rem;
+}
+.circle0{
+	background: #69d1e9;
+}
+.move2{
+	width: 2rem;
+	height: 4rem;
+	position: absolute;
+	top: 48%;
+	right: 5%;
+	z-index: 1000;
+}
