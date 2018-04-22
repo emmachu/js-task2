@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>task2-2</title>
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/task2-2.css">
+	<link rel="stylesheet" type="text/css" href="css/myreset.css">
+	<script type="text/javascript" src="js/task2-2.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="head">
+		 <button class="btn1">&lsaquo;</button>
+		</div>
+		<div class="secion">
+			<div class="main">
+				<div class="title">玩家配比</div>
+				<div class="title1">
+					<div class="people">
+						<div id="killer">幽灵<span id="killerNum">2</span>人</div>
+						<div id="citizen">水民<span id="citizenNum">6</span>人</div>
+					</div>
+					<div class="set">
+						<button id="set" type="button">点击设置</button>
+					</div>
+				</div>
+			</div>
+			<div class="name">
+				<ul>
+					<li class="name1">
+						幽灵词组：<input type="text" placeholder="限输入10个字内" size="30" 
+						maxlength="10" minlength="1" id="killer_word">
+					</li><br/>
+					<li class="name1">
+						水民词组：<input type="text" placeholder="限输入10个字内" size="30"
+						maxlength="10" minlength="1" id="citizen_word">
+					</li>
+				</ul>
+			</div>
+			<div class="num">
+				请输入玩家数量：<input type="text" size="1" id="inputValue" value="8">
+				<p>玩家数量为4-18</p>
+				<div class="text-center">
+					<button id="sub">&minus;</button>
+					<input type="range" min="4" max="18" id="range" value="8" step="1">
+					<button id="add">&plus;</button>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<input type="button" value="去发牌" id="button">
+		</div>
+	</div>
+</body>
+</html>
