@@ -85,7 +85,7 @@ $(document).ready(function() {
 	$(".stepfour").click( function() {
 		fsm.rolerVote();
 	})
-	//改变颜色后刷新也不变,即当处于某一状态时就显示当前的样式。
+	//改变有限状态机中流程的颜色后刷新也不变,即当处于某一状态时就显示当前的样式。
 	function yanse(a,b) {
 		a.css("background-color", "#83b09a")
 		b.css("border-right-color", "#83b09a");

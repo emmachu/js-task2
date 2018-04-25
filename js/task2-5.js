@@ -11,7 +11,10 @@ $(document).ready(function(){
 			window.location.href = "task2-1.html";
 		}
 	});
-	// $(".fbtn").click(function(){
-	// 	window.location.href = "task2-5.html";
-	// });
+	$(".fbtn1").click(function(){
+		window.location.href = "task2-1.html";
+	});
+	$(".fbtn2").click(function(){
+		window.location.href = "task2-7.html";
+	});
 });
