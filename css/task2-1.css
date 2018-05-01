@@ -35,7 +35,7 @@ body{
 	font-size: 1.4em;
 	letter-spacing: .15rem;
 	color: #9a9a9a;
-	background: url(img/move.png) no-repeat;
+	background: url(../img/move.png) no-repeat;
 	background-position: right center;
 	
 }
