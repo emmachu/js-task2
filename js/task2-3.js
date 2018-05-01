@@ -28,9 +28,10 @@ $(document).ready(function(){
 	}
 	shuffle(playRole);
 	console.log(typeof playRole);
-	var playRoleN = JSON.stringify(playRole);
-	console.log(typeof playRoleN);
-	sessionStorage.setItem("playRoleN", playRoleN);
+	// var playRoleN = JSON.stringify(playRole);
+	console.log(playRole);
+	//保存玩家身份的数组
+	sessionStorage.setItem("playRole", JSON.stringify(playRole));
 	// alert(playRole.length);
 	$(".fbtn").click(function(){
 		//alert(playRole.length);

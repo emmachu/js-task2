@@ -1,6 +1,6 @@
 $(document).ready(function () {
 		$(".btn1").click(function () {
-			window.open("task2-1.html", "play1");
+			window.location.href = "task2-1.html";
 		});
 		var inputValue = $("#inputValue");
 		var killer = $("#killer");

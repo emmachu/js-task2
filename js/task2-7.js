@@ -1,16 +1,17 @@
 $(document).ready(function(){
-	var a = sessionStorage.getItem("playRoleN");
-	var obj = JSON.parse(a);
+	// var state = sessionStorage.getItem("state");
+	// console.log(state);
+	var playRole = JSON.parse(sessionStorage.getItem("playRole"));
 	var rolersArr = JSON.parse(sessionStorage.getItem("rolersArr"));
-
-	console.log(rolersArr[2].state);
-	for (var i = 0; i < obj.length; i++) {
+	console.log(playRole);
+	console.log(rolersArr);
+	for (var i = 0; i < playRole.length; i++) {
 		var rolersNum = i + 1;
 		$(".main").append(
 		"<div class='wrap'>" + 
 			"<div class='wrap_inner'>" + 
-				"<div class='up_part'>" + rolersArr[i].id + "</div>" + 
-				"<div class='down_part'>" + rolersArr[i].num + "号" + "</div>" + 
+				"<div class='up_part'>" + playRole[i] + "</div>" + 
+				"<div class='down_part'>" + rolersNum + "号" + "</div>" + 
 			"</div>" + 
 		"</div>");
 		//在法官日记中为已经死亡的角色添加背景颜色。

@@ -1,11 +1,12 @@
 $(document).ready(function() {
+	var dead = JSON.parse(sessionStorage.getItem("dead"));
 	var fsm = {
-		state : sessionStorage.getItem("state"),
+		state : sessionStorage.getItem("playstate"),
 		//第一个按钮
 		rolerKill : function() {
 			switch (fsm.state){
 				case "alive":
-				sessionStorage.setItem("state", "stepone");
+				sessionStorage.setItem("playstate", "stepone");
 				window.location.href = "task2-6.html";
 				break;
 				case "steptwo":
@@ -23,7 +24,7 @@ $(document).ready(function() {
 				case "steptwo":
 				alert("请亡灵发表遗言!");
 				fsm.state = "stepthree";
-				sessionStorage.setItem("state", fsm.state);
+				sessionStorage.setItem("playstate", fsm.state);
 				$(".triangle_left2").css("border-right-color", "#83b09a");
 				$(".lastTalk").css("background-color", "#83b09a");
 				console.log(fsm.state);
@@ -31,6 +32,7 @@ $(document).ready(function() {
 				case "stepthree":
 				alert("请勿重复操作!");
 				break;
+			
 				case "steptone":
 				case "stepfour":
 				alert("请按顺序操作!");
@@ -43,13 +45,14 @@ $(document).ready(function() {
 				case "stepthree":
 				alert("请玩家依次发言!");
 				fsm.state = "stepfour";
-				sessionStorage.setItem("state", fsm.state);
+				sessionStorage.setItem("playstate", fsm.state);
 				$(".triangle_left3").css("border-right-color", "#83b09a");
 				$(".rolerDiscuss").css("background-color", "#83b09a");
 				break;
 				case "stepfour":
 				alert("请勿重复操作!");
 				break;
+				
 				case "stepone":
 				case "steptwo":
 				alert("请按顺序操作!");
@@ -65,6 +68,7 @@ $(document).ready(function() {
 				$(".triangle_left4").css("border-right-color", "#83b09a");
 				$(".rolerVote").css("background-color", "#83b09a");
 				break;
+				
 				case "stepone":
 				case "steptwo":
 				case "stepthree":
@@ -90,9 +94,22 @@ $(document).ready(function() {
 		a.css("background-color", "#83b09a")
 		b.css("border-right-color", "#83b09a");
 	}
-	switch(sessionStorage.getItem("state")){
+	switch(sessionStorage.getItem("playstate")){
 		case "steptwo":
 		yanse($(".rolerKill"),$(".triangle_left1"));
+		if (dead.slice(-1)[0] == "nokill" ) {
+			$(".stepone").after(
+				"<div class='news'>" + 
+					"今晚没有人被杀死" + 
+				"</div>"
+			);
+		}else {
+			$(".stepone").after(
+				"<div class='news'>" + 
+					dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id + 
+				"</div>"
+			);
+		}
 		break;
 		case "stepthree":
 		yanse($(".rolerKill"),$(".triangle_left1"));
