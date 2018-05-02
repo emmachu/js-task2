@@ -8,27 +8,21 @@
 .head{
 	position: fixed;
 	top: 0;
-	display: flex;
-	justify-content: space-between;
 	width: 375px;
 	height: 5rem;
 	line-height: 5rem;
+	text-align: center;
 	border-bottom: .1rem solid #fff;
 }
 .head span{
+	display: inline-block;
 	font-family: "黑体";
 	font-size: 2.5rem;
 	color: #fff;
 }
-.back{
-	position: relative;
-	top: 1.5rem;
-	width: 1.5rem;
-	height: 2rem;
-}
 .quit{
-	position: relative;
-	top: 1.5rem;
+	float: right;
+	margin-top: 1.5rem;
 	width: 2rem;
 	height: 2rem;
 }

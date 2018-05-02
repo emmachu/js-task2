@@ -101,7 +101,7 @@ body{
 	height: auto;
 	border-left: .1rem solid #ccc;
 }
-.steps{
+.steps, .nsteps{
 	position: relative;
 	width: 100%;
 	height: 3rem;
@@ -113,14 +113,16 @@ body{
 	color: #fff;
 	cursor: pointer;
 }
-.news{
+.knews,.vnews{
 	width: 100%;
 	height: 2rem;
 	line-height: 2rem;
-	margin-bottom: 1rem;
 	font-size: 1.5rem;
 	color: #111;
 	text-align: center;
+}
+.knews{
+	margin-bottom: 1rem;
 }
 .moon,.sun{
 	position: absolute;
