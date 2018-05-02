@@ -144,8 +144,7 @@ $(document).ready(function() {
 					dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id + 
 				"</div>"
 			);
-		}// yanse($(".rolerVote"),$(".triangle_left4"));
+		}
 		break;
 	}
-
 });

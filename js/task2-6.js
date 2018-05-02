@@ -63,7 +63,8 @@ $(document).ready(function() {
 							console.log("水民人数" + citizenNum);
 							if (citizenNum == 0) {
 								alert("幽灵获得胜利！");
-								window.location.href = "task2-1.html";
+								sessionStorage.setItem("citizenNum", JSON.parse(citizenNum));
+								window.location.href = "task2-8.html";
 							}else {
 								window.location.href = "task2-5.html";
 							}
@@ -93,7 +94,8 @@ $(document).ready(function() {
 							sessionStorage.setItem("voted", JSON.stringify(voted));
 							if (citizenNum == 0) {
 								alert("幽灵获得胜利！");
-								window.location.href = "task2-1.html";
+								sessionStorage.setItem("citizenNum", JSON.parse(citizenNum));
+								window.location.href = "task2-8.html";
 							}else {
 								playdays ++;
 								sessionStorage.setItem("playdays", playdays);
@@ -115,7 +117,9 @@ $(document).ready(function() {
 							sessionStorage.setItem("dead", JSON.stringify(dead));
 							sessionStorage.setItem("voted", JSON.stringify(voted));
 							if (killerNum == 0) {
-								window.location.href = "task2-1.html";
+								alert("水民获得胜利！");
+								sessionStorage.setItem("killerNum", JSON.parse(killerNum));
+								window.location.href = "task2-8.html";
 							}else {
 								playdays ++;
 								sessionStorage.setItem("playdays", playdays);
@@ -145,7 +149,6 @@ $(document).ready(function() {
 			}
 		}
 	});
-	//判断水民和幽灵人数，当水民或者幽灵人数等于0时，另一方获胜；当一轮走完，水民和幽灵人数都不为0时，天数增加一天，游戏状态恢复为"alive"。
 	//在杀人投票页面中为已经死亡的角色添加背景颜色。
 	for (var i = 0; i < rolersArr.length; i++) {
 		if (rolersArr[i].state == "steptwo" || rolersArr[i].state == "stepfour") {

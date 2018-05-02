@@ -7,7 +7,9 @@ $(document).ready(function(){
 	console.log(dead[0]);
 	console.log(playdays);
 	console.log(voted);
+	console.log(voted.slice(-1));
 	console.log(voted.slice(-1)[0]);
+	console.log(voted[0]);
 	$(".playdays").text("第" + playdays + "天");
 	if (playdays > 1) {
 		for (var i = 1; i < playdays; i ++) {
@@ -43,7 +45,8 @@ $(document).ready(function(){
 								"<span class='rolerVote'>" + "全民投票" + "</span>" + 
 							"</div>" + 
 							"<div class='vnews'>" + 
-								voted.slice(-1)[0].num + "号玩家被投死死，身份是" + voted.slice(-1)[0].id + 
+								voted[i-1].num + "号玩家被投死，身份是" + 
+								voted[i-1].id + 
 							"</div>" + 
 						"</div>" + 
 					"</div>" + 
@@ -53,7 +56,7 @@ $(document).ready(function(){
 			if (dead[i-1] == "nokill") {
 				$(".knews").eq(i-1).text("今晚没有人被杀死");
 			}else {
-				$(".knews").eq(i-1).text(dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id);
+				$(".knews").eq(i-1).text(dead[i-1].num + "号玩家被杀死，身份是" + dead[i-1].id);
 			}
 		}
 	}
