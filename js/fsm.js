@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	var dead = JSON.parse(sessionStorage.getItem("dead"));
+	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
+	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
 	var fsm = {
 		state : sessionStorage.getItem("playstate"),
 		//第一个按钮
@@ -68,7 +69,6 @@ $(document).ready(function() {
 				$(".triangle_left4").css("border-right-color", "#83b09a");
 				$(".rolerVote").css("background-color", "#83b09a");
 				break;
-				
 				case "stepone":
 				case "steptwo":
 				case "stepthree":
@@ -99,13 +99,13 @@ $(document).ready(function() {
 		yanse($(".rolerKill"),$(".triangle_left1"));
 		if (dead.slice(-1)[0] == "nokill" ) {
 			$(".stepone").after(
-				"<div class='news'>" + 
+				"<div class='knews'>" + 
 					"今晚没有人被杀死" + 
 				"</div>"
 			);
 		}else {
 			$(".stepone").after(
-				"<div class='news'>" + 
+				"<div class='knews'>" + 
 					dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id + 
 				"</div>"
 			);
@@ -114,12 +114,37 @@ $(document).ready(function() {
 		case "stepthree":
 		yanse($(".rolerKill"),$(".triangle_left1"));
 		yanse($(".lastTalk"),$(".triangle_left2"));
+		if (dead.slice(-1)[0] == "nokill" ) {
+			$(".stepone").after(
+				"<div class='knews'>" + 
+					"今晚没有人被杀死" + 
+				"</div>"
+			);
+		}else {
+			$(".stepone").after(
+				"<div class='knews'>" + 
+					dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id + 
+				"</div>"
+			);
+		}
 		break;
 		case "stepfour":
 		yanse($(".rolerKill"),$(".triangle_left1"));
 		yanse($(".lastTalk"),$(".triangle_left2"));
 		yanse($(".rolerDiscuss"),$(".triangle_left3"));
-		// yanse($(".rolerVote"),$(".triangle_left4"));
+		if (dead.slice(-1)[0] == "nokill" ) {
+			$(".stepone").after(
+				"<div class='knews'>" + 
+					"今晚没有人被杀死" + 
+				"</div>"
+			);
+		}else {
+			$(".stepone").after(
+				"<div class='knews'>" + 
+					dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id + 
+				"</div>"
+			);
+		}// yanse($(".rolerVote"),$(".triangle_left4"));
 		break;
 	}
 

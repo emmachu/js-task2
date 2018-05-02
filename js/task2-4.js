@@ -13,7 +13,8 @@ $(document).ready(function(){
 	var playdays = 1;//记录所玩的天数
 	sessionStorage.setItem("dead", JSON.stringify(dead));
 	sessionStorage.setItem("voted", JSON.stringify(voted));
-	sessionStorage.setItem("playdays", playdays);
+	sessionStorage.setItem("playdays", JSON.parse(playdays));
+	alert(typeof playdays);
 	//构造函数，将玩家的身份 序号 状态存为一个完整的对象并存入数组rolersArr中。
 	var Roler = function (rolersId,rolersNum,rolersState) {//这是一个函数，没有内容。
 		this.id = rolersId;

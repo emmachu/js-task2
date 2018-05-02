@@ -1,12 +1,16 @@
 $(document).ready(function(){
-	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家下标。
-	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家下标。
-	var playdays = sessionStorage.getItem("playdays");
+	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
+	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
+	var playdays = JSON.parse(sessionStorage.getItem("playdays"));
+	// alert(typeof playdays);
 	// playdays = 3;
 	console.log(dead[0]);
+	console.log(playdays);
+	console.log(voted);
+	console.log(voted.slice(-1)[0]);
 	$(".playdays").text("第" + playdays + "天");
 	if (playdays > 1) {
-		for (var i = 1; i < playdays; i++) {
+		for (var i = 1; i < playdays; i ++) {
 			var day = i;
 			//$(".flows").eq(-1)是遍历集合并以最后一个对象为第一个来增删查改等
 			$(".flows").eq(-1).before(
@@ -15,35 +19,42 @@ $(document).ready(function(){
 					"<div class='game_flow'>" + 
 						"<div class='triangle_top'>" + "</div>" + 
 						"<div class='game_inner'>" + 
-							"<div class='steps stepone nsteps'>" + 
+							"<div class='steps nsteps'>" + 
 								"<div class='moon'>" + 
 									"<img src='img/moon.png' alt=''>" + 
 								"</div>" + 
 								"<div class='triangle_left triangle_left1'>" + "</div>" + 
 								"<span class='rolerKill'>" + "杀手杀人" + "</span>" + 
 							"</div>" + 
-							"<div class='news'>" + 
-								"昨晚被杀的是我" + 
-							"</div>" + 
-							"<div class='steps steptwo nsteps'>" + 
+							"<div class='knews'>" + "杀手杀人" + "</div>" + 
+							"<div class='steps nsteps'>" + 
 								"<div class='sun'>" + 
 									"<img src='img/sun.png' alt=>" + 
 								"</div>" + 
 								"<div class='triangle_left triangle_left2'>" + "</div>" + 
 								"<span class='lastTalk'>" + "亡灵发表遗言" + "</span>" + 
 							"</div>" + 
-							"<div class='steps stepthree nsteps'>" + 
+							"<div class='steps nsteps'>" + 
 								"<div class='triangle_left triangle_left3'>" + "</div>" + 
 								"<span class='rolerDiscuss'>" + "玩家依次发言" + "</span>" + 
 							"</div>" + 
-							"<div class='steps stepfour nsteps'>" + 
+							"<div class='steps nsteps'>" + 
 								"<div class='triangle_left triangle_left4'>" + "</div>" + 
 								"<span class='rolerVote'>" + "全民投票" + "</span>" + 
+							"</div>" + 
+							"<div class='vnews'>" + 
+								voted.slice(-1)[0].num + "号玩家被投死死，身份是" + voted.slice(-1)[0].id + 
 							"</div>" + 
 						"</div>" + 
 					"</div>" + 
 				"</div>"
 			);
+			// alert(i);
+			if (dead[i-1] == "nokill") {
+				$(".knews").eq(i-1).text("今晚没有人被杀死");
+			}else {
+				$(".knews").eq(i-1).text(dead.slice(-1)[0].num + "号玩家被杀死，身份是" + dead.slice(-1)[0].id);
+			}
 		}
 	}
 	//新添加的天数数据，默认隐藏

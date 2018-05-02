@@ -1,15 +1,18 @@
 $(document).ready(function() {
 	var killerNum = parseInt(sessionStorage.getItem("killerNum"));
 	var citizenNum = parseInt(sessionStorage.getItem("citizenNum"));
+	var playdays = sessionStorage.getItem("playdays");
 	console.log("幽灵人数" + killerNum);
 	console.log("水民人数" + citizenNum);
+	console.log("当前天数" + playdays);
 	var playstate = sessionStorage.getItem("playstate");
 	console.log(playstate);
 	var rolersArr = JSON.parse(sessionStorage.getItem("rolersArr"));
 	console.log(rolersArr);
 	var index = undefined;//用来存储被选中的玩家的下标。
 	var selected = 0;//如果有玩家被选中，则变为1，如果没有选中则变为2.
-	var dead = [];//存放被杀玩家的下标的数组。
+	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
+	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
 	console.log(dead);
 	for (var i = 0; i < rolersArr.length; i++) {
 		$(".innerbox").append(
@@ -38,12 +41,12 @@ $(document).ready(function() {
 	}
 	//底部按钮
 	$(".fbtn").click(function () {
-		console.log(selected);
-		console.log(index);
+		console.log("是否被选中" + selected);
+		console.log("玩家下标" + index);
 		if (selected != 0) {
 			if (playstate == "stepone") {
-				if (rolersArr[index].id == "水民") {
-					if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour"){
+				if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour"){
+					if (rolersArr[index].id == "水民") {
 						var a = confirm("确定杀掉他吗？");
 						if (a == true) {
 							sessionStorage.setItem("playstate", "steptwo");
@@ -51,47 +54,98 @@ $(document).ready(function() {
 							dead.push(rolersArr[index]);
 							console.log(dead);
 							sessionStorage.setItem("dead", JSON.stringify(dead));
+							sessionStorage.setItem("voted", JSON.stringify(voted));
 							sessionStorage.setItem("rolersArr", JSON.stringify(rolersArr));
 							console.log(rolersArr[index].state);
 							console.log(rolersArr);
 							citizenNum --;
+							sessionStorage.setItem("citizenNum", citizenNum);
 							console.log("水民人数" + citizenNum);
-							window.location.href = "task2-5.html";
+							if (citizenNum == 0) {
+								alert("幽灵获得胜利！");
+								window.location.href = "task2-1.html";
+							}else {
+								window.location.href = "task2-5.html";
+							}
+							
 						}
+					}else if (rolersArr[index].id == "幽灵") {
+						alert("是自己人，请重新选择！")
 					}
-				}else if (rolersArr[index].id == "幽灵") {
-					alert("他是自己人，请重新选择！")
+				}else if (rolersArr[index].state == "steptwo" || rolersArr[index].state == "stepfour") {
+					alert("该玩家已经死亡，请重新选择！");
 				}
 			}else if (playstate == "stepfour") {
-				if (rolersArr[index].id == "水民") {
-					if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour") {
-						var b = confirm("确定要投死他吗？");
+				var b = confirm("确定要投死他吗？");
+				if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour") {
+					if (rolersArr[index].id == "水民") {
 						if (b == true) {
 							rolersArr[index].state = "stepfour";
 							console.log(rolersArr[index].state);
 							console.log(rolersArr);
 							sessionStorage.setItem("rolersArr", JSON.stringify(rolersArr));
 							citizenNum --;
+							sessionStorage.setItem("citizenNum", citizenNum);
 							console.log("水民人数" + citizenNum);
-							window.location.href = "task2-5.html";
+							voted.push(rolersArr[index]);
+							console.log(voted);
+							sessionStorage.setItem("dead", JSON.stringify(dead));
+							sessionStorage.setItem("voted", JSON.stringify(voted));
+							if (citizenNum == 0) {
+								alert("幽灵获得胜利！");
+								window.location.href = "task2-1.html";
+							}else {
+								playdays ++;
+								sessionStorage.setItem("playdays", playdays);
+								sessionStorage.setItem("playstate", "alive");
+								window.location.href = "task2-5.html";
+							}
+						}
+					}else if (rolersArr[index].id == "幽灵") {
+						if (b == true) {
+							rolersArr[index].state = "stepfour";
+							console.log(rolersArr[index].state);
+							console.log(rolersArr);
+							sessionStorage.setItem("rolersArr", JSON.stringify(rolersArr));
+							killerNum --;
+							console.log("幽灵人数" + killerNum);
+							sessionStorage.setItem("killerNum", killerNum);
+							voted.push(rolersArr[index]);
+							console.log(voted);
+							sessionStorage.setItem("dead", JSON.stringify(dead));
+							sessionStorage.setItem("voted", JSON.stringify(voted));
+							if (killerNum == 0) {
+								window.location.href = "task2-1.html";
+							}else {
+								playdays ++;
+								sessionStorage.setItem("playdays", playdays);
+								sessionStorage.setItem("playstate", "alive");
+								window.location.href = "task2-5.html";
+							}
 						}
 					}
+				}else if (rolersArr[index].state == "steptwo" || rolersArr[index].state == "stepfour") {
+					alert("该玩家已经死亡，请重新选择！");
 				}
 			}
 		}else if (selected == 0) {
 			if (playstate == "stepone") {
-				var b = confirm("确定此轮不杀人吗");
-				if (b == true) {
+				var c = confirm("确定此轮不杀人吗");
+				if (c == true) {
 					// rolersArr[index].state = "steptwo";
 					dead.push("nokill");
 					alert(dead);
 					sessionStorage.setItem("playstate", "steptwo");
 					sessionStorage.setItem("dead", JSON.stringify(dead));
+					sessionStorage.setItem("voted", JSON.stringify(voted));
 					window.location.href = "task2-5.html";
 				}
+			}else if (playstate == "stepfour") {
+				alert("请选择一个玩家！");
 			}
 		}
 	});
+	//判断水民和幽灵人数，当水民或者幽灵人数等于0时，另一方获胜；当一轮走完，水民和幽灵人数都不为0时，天数增加一天，游戏状态恢复为"alive"。
 	//在杀人投票页面中为已经死亡的角色添加背景颜色。
 	for (var i = 0; i < rolersArr.length; i++) {
 		if (rolersArr[i].state == "steptwo" || rolersArr[i].state == "stepfour") {
