@@ -1,13 +1,16 @@
 body{
 	margin: 0 auto;
-	max-width: 375px;
-	background-color: #fff;
+	// max-width: 375px;
+	background-color: #ccc;
 }
 .container{
 	position: relative;
-	width: 100%;
-	height: 100%;
+	margin: 0 auto;
+	width: 375px;
+	min-height: 100%;
+	height: auto;
 	padding: 0;
+	background-color: #fff;
 }
 .head{
 	display: flex;

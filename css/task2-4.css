@@ -1,6 +1,7 @@
 body{
 	margin: 0 auto;
-	max-width: 375px;
+	width: 375px;
+	height: 100%;
 	background-color: #ccc;
 }
 .container{
@@ -39,8 +40,7 @@ body{
 }
 .main{
 	width: 100%;
-	height: 40rem;
-	//border: 1px solid #000;
+	height: 100%;
 	padding: 2rem 2rem 0;
 	font-size: 0;//消除inline-block元素之间的间隙
 }
@@ -51,7 +51,6 @@ body{
 	display: inline-block;
 	margin-bottom: 2rem;
 	text-align: center;
-	//border: 1px solid #000;
 }
 .wrap_inner{
 	width: 80%;
