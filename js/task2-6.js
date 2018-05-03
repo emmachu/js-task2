@@ -136,7 +136,6 @@ $(document).ready(function() {
 				var c = confirm("确定此轮不杀人吗");
 				if (c == true) {
 					dead.push("nokill");
-					alert(dead);
 					sessionStorage.setItem("playstate", "steptwo");
 					sessionStorage.setItem("dead", JSON.stringify(dead));
 					sessionStorage.setItem("voted", JSON.stringify(voted));
