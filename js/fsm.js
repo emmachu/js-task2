@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
 	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
+	// var playstate = sessionStorage.getItem("playstate");
+	// console.log(playstate);
 	var fsm = {
 		state : sessionStorage.getItem("playstate"),
 		//第一个按钮
@@ -33,7 +35,7 @@ $(document).ready(function() {
 				case "stepthree":
 				alert("请勿重复操作!");
 				break;
-			
+				case "alive":
 				case "steptone":
 				case "stepfour":
 				alert("请按顺序操作!");
@@ -53,7 +55,7 @@ $(document).ready(function() {
 				case "stepfour":
 				alert("请勿重复操作!");
 				break;
-				
+				case "alive":
 				case "stepone":
 				case "steptwo":
 				alert("请按顺序操作!");
@@ -64,11 +66,11 @@ $(document).ready(function() {
 		rolerVote : function () {
 			switch(fsm.state) {
 				case "stepfour":
-				// alert("请投票!");
 				window.location.href = "task2-6.html";
 				$(".triangle_left4").css("border-right-color", "#83b09a");
 				$(".rolerVote").css("background-color", "#83b09a");
 				break;
+				case "alive":
 				case "stepone":
 				case "steptwo":
 				case "stepthree":
@@ -77,19 +79,20 @@ $(document).ready(function() {
 			}
 		}
 	};
-	$(".stepone").click( function() {
+	$(".rolerKill").click( function() {
 		fsm.rolerKill();
 	})
-	$(".steptwo").click( function() {
+	$(".lastTalk").click( function() {
 		fsm.lastTalk();
 	})
-	$(".stepthree").click( function() {
+	$(".rolerDiscuss").click( function() {
 		fsm.rolerDiscuss();
 	})
-	$(".stepfour").click( function() {
+	$(".rolerVote").click( function() {
 		fsm.rolerVote();
 	})
 	//改变有限状态机中流程的颜色后刷新也不变,即当处于某一状态时就显示当前的样式。
+	//颜色的函数封装
 	function yanse(a,b) {
 		a.css("background-color", "#83b09a")
 		b.css("border-right-color", "#83b09a");

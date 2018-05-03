@@ -1,6 +1,4 @@
 $(document).ready(function(){
-	// var state = sessionStorage.getItem("state");
-	// console.log(state);
 	var playRole = JSON.parse(sessionStorage.getItem("playRole"));
 	var rolersArr = JSON.parse(sessionStorage.getItem("rolersArr"));
 	console.log(playRole);

@@ -85,6 +85,7 @@ $(document).ready(function () {
 		})
 		//判断可以发牌的所有条件
 		$("#button").click(function (){
+			var pattern = /^[\u4e00-\u9fa5]*$/;
 			var kValue = killer_word.val();
 			var cValue = citizen_word.val();
 			var iValue = inputValue.val();
@@ -92,7 +93,9 @@ $(document).ready(function () {
 			var cNum = Number(citizenNum.html());
 			var playerNum = kNum + cNum;
 			// alert(typeof kNum);
-			if (kValue == false || cValue == false) {//在水民和幽灵词组一栏，必须填写内容
+			if (pattern.test(kValue) == false || pattern.test(cValue) == false) {
+				alert("请输入汉字");
+			}else if (kValue == false || cValue == false) {//在水民和幽灵词组一栏，必须填写内容
 				confirm("请输入10字以内正确的词组");
 			}else {
 				if (kValue == cValue) {
@@ -108,11 +111,9 @@ $(document).ready(function () {
 						}
 					}
 				}
-			sessionStorage.setItem("kValue", kValue);//获取幽灵词组
-			sessionStorage.setItem("cValue", cValue);//获取水民词组
+			sessionStorage.setItem("kValue", kValue);//存储幽灵词组
+			sessionStorage.setItem("cValue", cValue);//存储水民词组
 			sessionStorage.setItem("killerNum", killerNum.html());
 			sessionStorage.setItem("citizenNum", citizenNum.html());
-			//console.log(killerNum.html());
-			//console.log( citizenNum.html());
 		});
 });

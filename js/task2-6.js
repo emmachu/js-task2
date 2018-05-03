@@ -67,8 +67,7 @@ $(document).ready(function() {
 								window.location.href = "task2-8.html";
 							}else {
 								window.location.href = "task2-5.html";
-							}
-							
+							}	
 						}
 					}else if (rolersArr[index].id == "幽灵") {
 						alert("是自己人，请重新选择！")
@@ -136,7 +135,6 @@ $(document).ready(function() {
 			if (playstate == "stepone") {
 				var c = confirm("确定此轮不杀人吗");
 				if (c == true) {
-					// rolersArr[index].state = "steptwo";
 					dead.push("nokill");
 					alert(dead);
 					sessionStorage.setItem("playstate", "steptwo");
@@ -153,7 +151,6 @@ $(document).ready(function() {
 	for (var i = 0; i < rolersArr.length; i++) {
 		if (rolersArr[i].state == "steptwo" || rolersArr[i].state == "stepfour") {
 				var index = rolersArr[i].num-1;
-				// console.log(index);
 				$(".up_part").eq(index).css("background-color", "#83b09a")
 			}
 		}

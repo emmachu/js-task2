@@ -3,14 +3,10 @@ $(document).ready(function(){
 	var citizenNum = parseInt(sessionStorage.getItem("citizenNum"));
 	var kValue = sessionStorage.getItem("kValue");//获取幽灵词组内填写的内容
 	var cValue = sessionStorage.getItem("cValue");//获取水民词组内填写的内容
-	//console.log(typeof sessionStorage.getItem("killerNum"));
 	console.log( citizenNum);
-	//alert(typeof killerNum);
-	//alert(citizenNum);
 	var playRole = [];//定义一个数组存放所有玩家。
 	var circleNum = 1;
 	var check = true;//定义一个状态。
-
 	for (var i = 0; i < killerNum; i++) {
 		playRole.push("幽灵");
 	}
@@ -43,7 +39,6 @@ $(document).ready(function(){
 				$(".my_role").html(playRole[circleNum-1]);
 				var my_role = $(".my_role").html();
 				circleNum++;
-				//alert(playRole[circleNum-1]);
 				$(".fbtn").html("隐藏并传递给" + circleNum + "号");	
 			}else if (check == false) {//此时为角色界面
 				$(".cover").show();

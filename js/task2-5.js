@@ -4,12 +4,9 @@ $(document).ready(function(){
 	var playdays = JSON.parse(sessionStorage.getItem("playdays"));
 	// alert(typeof playdays);
 	// playdays = 3;
-	console.log(dead[0]);
 	console.log(playdays);
 	console.log(voted);
-	console.log(voted.slice(-1));
-	console.log(voted.slice(-1)[0]);
-	console.log(voted[0]);
+	console.log(dead);
 	$(".playdays").text("第" + playdays + "天");
 	if (playdays > 1) {
 		for (var i = 1; i < playdays; i ++) {
@@ -26,7 +23,7 @@ $(document).ready(function(){
 									"<img src='img/moon.png' alt=''>" + 
 								"</div>" + 
 								"<div class='triangle_left triangle_left1'>" + "</div>" + 
-								"<span class='rolerKill'>" + "杀手杀人" + "</span>" + 
+								"<span class='rolerKill1'>" + "杀手杀人" + "</span>" + 
 							"</div>" + 
 							"<div class='knews'>" + "杀手杀人" + "</div>" + 
 							"<div class='steps nsteps'>" + 
@@ -34,25 +31,23 @@ $(document).ready(function(){
 									"<img src='img/sun.png' alt=>" + 
 								"</div>" + 
 								"<div class='triangle_left triangle_left2'>" + "</div>" + 
-								"<span class='lastTalk'>" + "亡灵发表遗言" + "</span>" + 
+								"<span class='lastTalk1'>" + "亡灵发表遗言" + "</span>" + 
 							"</div>" + 
 							"<div class='steps nsteps'>" + 
 								"<div class='triangle_left triangle_left3'>" + "</div>" + 
-								"<span class='rolerDiscuss'>" + "玩家依次发言" + "</span>" + 
+								"<span class='rolerDiscuss1'>" + "玩家依次发言" + "</span>" + 
 							"</div>" + 
 							"<div class='steps nsteps'>" + 
 								"<div class='triangle_left triangle_left4'>" + "</div>" + 
-								"<span class='rolerVote'>" + "全民投票" + "</span>" + 
+								"<span class='rolerVote1'>" + "全民投票" + "</span>" + 
 							"</div>" + 
 							"<div class='vnews'>" + 
-								voted[i-1].num + "号玩家被投死，身份是" + 
-								voted[i-1].id + 
+								voted[i-1].num + "号玩家被投死，身份是" + voted[i-1].id + 
 							"</div>" + 
 						"</div>" + 
 					"</div>" + 
 				"</div>"
 			);
-			// alert(i);
 			if (dead[i-1] == "nokill") {
 				$(".knews").eq(i-1).text("今晚没有人被杀死");
 			}else {
