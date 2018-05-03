@@ -1,13 +1,12 @@
 body{
-	margin: 0 auto;
-	width: 375px;
-	height: 100%;
 	background-color: #ccc;
 }
 .container{
 	position: relative;
-	width: 100%;
-	height: 100%;
+	margin: 0 auto;
+	max-width: 750px;
+	min-height: 100%;
+	height: auto;
 	padding: 0;
 	background: #29bde0;
 }
@@ -15,7 +14,8 @@ body{
 	position: fixed;
 	top: 0;
 	z-index: 1000;
-	width: 375px;
+	width: 100%;
+	max-width: 750px;
 	height: 5rem;
 	line-height: 5rem;
 	text-align: center;
@@ -45,15 +45,13 @@ body{
 	position: relative;
 	top: 5rem;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	padding: 2rem 2rem 0;
 	font-size: 0;//消除inline-block元素之间的间隙
 }
 .wrap{
-	width: 33%;
-	max-width: 9rem;
-	height: 8rem;
 	display: inline-block;
+	width: 33%;
 	margin-bottom: 2rem;
 	text-align: center;
 }
@@ -65,23 +63,23 @@ body{
 }
 .up_part{
 	width: 100%;
-	height: 70%;
+	height: 5rem;
 	line-height: 5rem;
 	font-size: 2rem;
 	background-color: #f5c97b;
 }
 .down_part{
 	width: 100%;
-	height: 30%;
+	height: 2rem;
 	line-height: 2rem;
 	font-size: 1rem;
 	background-color: #83b09a;
 }
 .foot{
-	width: 100%;
-	max-width: 375px;
 	position: fixed;
 	bottom: 0;
+	width: 100%;
+	max-width: 750px;
 	background: #29bde9;
 }
 .fbtn{
@@ -92,7 +90,7 @@ body{
 	font-family: "黑体";
 	font-size: 3rem;
 	color: #fff;
+	background-color: #fbb435;
 	border: 0;
 	border-radius: 0;
-	background-color: #fbb435;
 }
