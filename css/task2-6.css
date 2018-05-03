@@ -23,6 +23,7 @@ body{
 }
 .head span{
 	display: inline-block;
+	margin-left: 1rem;
 	font-family: "黑体";
 	font-size: 2.5rem;
 	color: #fff;
