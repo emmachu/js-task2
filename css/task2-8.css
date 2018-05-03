@@ -39,7 +39,6 @@ body{
 	width: 375px;
 	height: 5rem;
 	background-color: rgba(25, 223, 240, 0.5);
-	border: 1px solid #000;
 	display: flex;
 	justify-content: space-around;
 }
@@ -86,12 +85,12 @@ body{
 	transform: translateX(-50%);
 	font-size: 2rem;
 }
+.box{
+	width: 70%;
+	margin: 0 auto;
+}
 .theleft{
 	margin-top: 1rem;
-}
-.theleft, .killer, .citizen, .killerword, .citizenword{
-	position: relative;
-	left: 20%;
 }
 .killer{
 	margin-right: 1rem;
