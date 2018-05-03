@@ -22,24 +22,28 @@ $(document).ready(function(){
 								"<div class='moon'>" + 
 									"<img src='img/moon.png' alt=''>" + 
 								"</div>" + 
-								"<div class='triangle_left triangle_left1'>" + "</div>" + 
-								"<span class='rolerKill1'>" + "杀手杀人" + "</span>" + 
+								"<div class='steper rolerKill1'>" + "杀手杀人" + 
+									"<div class='triangle_left triangle_left1'>" + "</div>" + 
+								"</div>" + 
 							"</div>" + 
 							"<div class='knews'>" + "杀手杀人" + "</div>" + 
 							"<div class='steps nsteps'>" + 
 								"<div class='sun'>" + 
 									"<img src='img/sun.png' alt=>" + 
+								"</div>" +  
+								"<div class='steper lastTalk1'>" + "亡灵发表遗言" + 
+									"<div class='triangle_left triangle_left2'>" + "</div>" + 
 								"</div>" + 
-								"<div class='triangle_left triangle_left2'>" + "</div>" + 
-								"<span class='lastTalk1'>" + "亡灵发表遗言" + "</span>" + 
 							"</div>" + 
 							"<div class='steps nsteps'>" + 
-								"<div class='triangle_left triangle_left3'>" + "</div>" + 
-								"<span class='rolerDiscuss1'>" + "玩家依次发言" + "</span>" + 
+								"<div class='steper rolerDiscuss1'>" + "玩家依次发言" + 
+									"<div class='triangle_left triangle_left3'>" + "</div>" + 
+								"</div>" + 
 							"</div>" + 
 							"<div class='steps nsteps'>" + 
-								"<div class='triangle_left triangle_left4'>" + "</div>" + 
-								"<span class='rolerVote1'>" + "全民投票" + "</span>" + 
+								"<div class='steper rolerVote1'>" + "全民投票" + 
+									"<div class='triangle_left triangle_left4'>" + "</div>" + 
+								"</div>" + 
 							"</div>" + 
 							"<div class='vnews'>" + 
 								voted[i-1].num + "号玩家被投死，身份是" + voted[i-1].id + 
