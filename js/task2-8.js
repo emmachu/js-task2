@@ -49,12 +49,14 @@ $(document).ready(function() {
 	$(".homepage").click(function () {
 		var a = confirm("确定返回首页吗？");
 		if (a == true) {
+			sessionStorage.clear();
 			window.location.href = "task2-1.html";
 		}
 	})
 	$(".fbtn1").click(function () {
 		var b = confirm("要再玩一局吗？");
 		if (b == true) {
+			sessionStorage.clear();
 			window.location.href = "task2-2.html";
 		}
 	})
