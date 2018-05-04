@@ -44,10 +44,10 @@ body{
 	margin: 1rem auto;
 	display: flex;
 	display: -webkit-box; 
-    display: -moz-box; 
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    background-color: #fff;
+    	display: -moz-box; 
+    	display: -webkit-flex;
+    	display: -ms-flexbox;
+    	background-color: #fff;
 }
 .title{
 	width: 8%;
@@ -67,9 +67,9 @@ body{
 	height: 80%;
 	display: flex;
 	display: -webkit-box; 
-    display: -moz-box; 
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    	display: -moz-box; 
+    	display: -webkit-flex;
+    	display: -ms-flexbox;
 	align-items: center;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
@@ -143,9 +143,9 @@ body{
 	margin: 1rem 0;
 	display: flex;
 	display: -webkit-box; 
-    display: -moz-box; 
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    	display: -moz-box; 
+    	display: -webkit-flex;
+    	display: -ms-flexbox;
 	align-items:center;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
