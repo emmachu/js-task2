@@ -143,9 +143,9 @@ body{
 	margin: 1rem 0;
 	display: flex;
 	display: -webkit-box; 
-    	display: -moz-box; 
-    	display: -webkit-flex;
-    	display: -ms-flexbox;
+	display: -moz-box; 
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	align-items:center;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
@@ -166,14 +166,25 @@ body{
 	border: 1px solid #ccc;
 }
 #range{
-	width: 80%;
+	width: 70%;
 	height: .3rem;
-	flex:7;
+	flex:6;
 	appearance: none;
 	-webkit-appearance:none;
 	background-color: #fab344;
 	background-position: center;
 	outline: none;
+}
+input[type = range]::-webkit-slider-thumb{
+	width: 2.8rem;
+	height: 1.8rem;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image:  url(../img/slide.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
 }
 .num input{
 	color: #fbb435;
@@ -188,7 +199,7 @@ body{
 }
 .footer{
 	position: fixed;
-	bottom: 0;
+	bottom: 1rem;
 	width: 100%;
 	max-width: 750px;
 	margin: 0 auto;

@@ -23,15 +23,14 @@ body{
 }
 .head span{
 	display: inline-block;
-	margin-left: 1rem;
 	font-family: "黑体";
 	font-size: 2.5rem;
 	color: #fff;
 }
 .quit{
-	float: right;
-	margin-top: 1.5rem;
-	margin-right: 1rem;
+	position: absolute;
+	top: 1.5rem;
+	right: 1rem;
 	width: 2rem;
 	height: 2rem;
 }
