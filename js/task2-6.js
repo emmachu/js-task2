@@ -61,7 +61,7 @@ $(document).ready(function() {
 							citizenNum --;
 							sessionStorage.setItem("citizenNum", citizenNum);
 							console.log("水民人数" + citizenNum);
-							if (citizenNum == 0) {
+							if (citizenNum <= killerNum) {
 								alert("幽灵获得胜利！");
 								sessionStorage.setItem("citizenNum", JSON.parse(citizenNum));
 								window.location.href = "task2-8.html";
@@ -91,7 +91,7 @@ $(document).ready(function() {
 							console.log(voted);
 							sessionStorage.setItem("dead", JSON.stringify(dead));
 							sessionStorage.setItem("voted", JSON.stringify(voted));
-							if (citizenNum == 0) {
+							if (citizenNum <= killerNum) {
 								alert("幽灵获得胜利！");
 								sessionStorage.setItem("citizenNum", JSON.parse(citizenNum));
 								window.location.href = "task2-8.html";
