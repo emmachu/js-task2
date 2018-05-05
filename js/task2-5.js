@@ -1,10 +1,10 @@
 $(document).ready(function(){
-	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
-	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
-	var playdays = JSON.parse(sessionStorage.getItem("playdays"));
-	// alert(typeof playdays);
-	// playdays = 3;
+	var dead = JSON.parse(sessionStorage.getItem("dead")),//获取被杀玩家的数组，内容是玩家对象。
+		voted = JSON.parse(sessionStorage.getItem("voted")),//获取被投死的玩家的数组，内容是玩家对象。
+		playstate = sessionStorage.getItem("playstate"),
+		playdays = JSON.parse(sessionStorage.getItem("playdays"));
 	console.log(playdays);
+	console.log(playstate);
 	console.log(voted);
 	console.log(dead);
 	$(".playdays").text("第" + playdays + "天");

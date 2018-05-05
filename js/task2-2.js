@@ -2,16 +2,16 @@ $(document).ready(function () {
 		$(".btn1").click(function () {
 			window.location.href = "task2-1.html";
 		});
-		var inputValue = $("#inputValue");
-		var killer = $("#killer");
-		var citizen = $("#citizen");
-		var killer_word = $("#killer_word");
-		var citizen_word = $("#citizen_word");
-		var rangeNum = $("#range");
-		var killerNum = $("#killerNum");
-		var citizenNum = $("#citizenNum");
-		var subBtn = $("#sub");
-		var addBtn = $("add");
+		var inputValue = $("#inputValue"),
+			killer = $("#killer"),
+			citizen = $("#citizen"),
+			killer_word = $("#killer_word"),
+			citizen_word = $("#citizen_word"),
+			rangeNum = $("#range"),
+			killerNum = $("#killerNum"),
+			citizenNum = $("#citizenNum"),
+			subBtn = $("#sub"),
+			addBtn = $("add");
 		//滑动条的blur事件
 		$("#inputValue").blur(function () {
 			//var value = parseInt(inputValue.val());//这一步parseInt函数可解析一个字符串，并返回一个整数。
@@ -85,13 +85,13 @@ $(document).ready(function () {
 		})
 		//判断可以发牌的所有条件
 		$("#button").click(function (){
-			var pattern = /^[\u4e00-\u9fa5]*$/;
-			var kValue = killer_word.val();
-			var cValue = citizen_word.val();
-			var iValue = inputValue.val();
-			var kNum = 	Number(killerNum.html());
-			var cNum = Number(citizenNum.html());
-			var playerNum = kNum + cNum;
+			var pattern = /^[\u4e00-\u9fa5]*$/,
+				kValue = killer_word.val(),
+				cValue = citizen_word.val(),
+				iValue = inputValue.val(),
+				kNum = 	Number(killerNum.html()),
+				cNum = Number(citizenNum.html()),
+				playerNum = kNum + cNum;
 			// alert(typeof kNum);
 			if (pattern.test(kValue) == false || pattern.test(cValue) == false) {
 				alert("请输入汉字");

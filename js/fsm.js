@@ -36,7 +36,7 @@ $(document).ready(function() {
 				alert("请勿重复操作!");
 				break;
 				case "alive":
-				case "steptone":
+				case "stepone":
 				case "stepfour":
 				alert("请按顺序操作!");
 				break;

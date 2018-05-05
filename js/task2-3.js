@@ -1,12 +1,12 @@
 $(document).ready(function(){
-	var killerNum = parseInt(sessionStorage.getItem("killerNum"));
-	var citizenNum = parseInt(sessionStorage.getItem("citizenNum"));
-	var kValue = sessionStorage.getItem("kValue");//获取幽灵词组内填写的内容
-	var cValue = sessionStorage.getItem("cValue");//获取水民词组内填写的内容
+	var killerNum = parseInt(sessionStorage.getItem("killerNum")),
+		citizenNum = parseInt(sessionStorage.getItem("citizenNum")),
+		kValue = sessionStorage.getItem("kValue"),//获取幽灵词组内填写的内容
+		cValue = sessionStorage.getItem("cValue"),//获取水民词组内填写的内容
+		playRole = [],//定义一个数组存放所有玩家。
+		circleNum = 1,
+		check = true;//定义一个状态。
 	console.log( citizenNum);
-	var playRole = [];//定义一个数组存放所有玩家。
-	var circleNum = 1;
-	var check = true;//定义一个状态。
 	for (var i = 0; i < killerNum; i++) {
 		playRole.push("幽灵");
 	}
@@ -15,8 +15,8 @@ $(document).ready(function(){
 	}
 	function shuffle(array) {
         for (var i = array.length; i--; ) {//for循环中只写2组数据的时候，要注意最后一组数据后面要加上;和空格；洗牌算法，首先取数组最后一个值
-  			var j = Math.floor(Math.random() * (i+1));//然后获取一个随机数j,获得随机数j位置上的值
-  			var temp = array[i];//最后将最后一个位置的值与随机位置的值互换。
+  			var j = Math.floor(Math.random() * (i+1)),//然后获取一个随机数j,获得随机数j位置上的值
+  				temp = array[i];//最后将最后一个位置的值与随机位置的值互换。
   			array[i] = array[j];//循环遍历数组，每循环一次就交换一下位置，以此达到打乱数组的目的。
   			array[j] = temp;
         }
@@ -24,7 +24,6 @@ $(document).ready(function(){
 	}
 	shuffle(playRole);
 	console.log(typeof playRole);
-	// var playRoleN = JSON.stringify(playRole);
 	console.log(playRole);
 	//保存玩家身份的数组
 	sessionStorage.setItem("playRole", JSON.stringify(playRole));

@@ -1,19 +1,15 @@
 $(document).ready(function() {
-	var killerNum = parseInt(sessionStorage.getItem("killerNum"));//获取剩余幽灵人数
-	var citizenNum = parseInt(sessionStorage.getItem("citizenNum"));//获取剩余水民人数
-	var kValue = sessionStorage.getItem("kValue");//获取幽灵词组内容
-	var cValue = sessionStorage.getItem("cValue");//获取水民词组内容
-	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
-	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
-	var playdays = JSON.parse(sessionStorage.getItem("playdays"));
-	// console.log(killerNum);
-	// console.log(citizenNum);
-	// console.log(dead);
-	// console.log(voted);
+	var killerNum = parseInt(sessionStorage.getItem("killerNum")),//获取剩余幽灵人数
+		citizenNum = parseInt(sessionStorage.getItem("citizenNum")),//获取剩余水民人数
+		kValue = sessionStorage.getItem("kValue"),//获取幽灵词组内容
+		cValue = sessionStorage.getItem("cValue"),//获取水民词组内容
+		dead = JSON.parse(sessionStorage.getItem("dead")),//获取被杀玩家的数组，内容是玩家对象。
+		voted = JSON.parse(sessionStorage.getItem("voted")),//获取被投死的玩家的数组，内容是玩家对象。
+		playdays = JSON.parse(sessionStorage.getItem("playdays"));
 	console.log("天数" + playdays);
 	if (killerNum == 0) {
 		$(".wintext").text("水民胜利");
-	}else if (citizenNum == 0) {
+	}else if (citizenNum == killerNum) {
 		$(".wintext").text("幽灵胜利");
 	}
 	$(".killer").text("幽灵" + killerNum + "人");
@@ -21,7 +17,6 @@ $(document).ready(function() {
 	$(".getk").text(kValue);
 	$(".getc").text(cValue);
 	//玩家记录
-	// var days = $(".days").text(playdays);
 	for (var i = 0; i < playdays; i++) {
 		var day = i + 1;
 		$(".bottompart").append(

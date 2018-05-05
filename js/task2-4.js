@@ -1,20 +1,18 @@
 $(document).ready(function(){
-	// console.log("幽灵词组" + kValue);
-	//获取玩家身份的数组
-	var playRole = JSON.parse(sessionStorage.getItem("playRole"));
-	sessionStorage.setItem("playstate", "alive");
-	console.log(playRole.length);
-	console.log(playRole);
-	var rolersArr = Array();
-	var rolersId,//玩家身份
+	var playRole = JSON.parse(sessionStorage.getItem("playRole")),
+		rolersArr = Array(),
+		rolersId,//玩家身份
 	    rolersNum = 0,//玩家序号
-	    rolersState = "alive";//玩家初始状态“alive”
-	var dead = [];//存放被杀玩家的下标的数组
-	var voted = [];//存放被投死的玩家的下标的数组
-	var playdays = 1;//记录所玩的天数
+	    rolersState = "alive",//玩家初始状态“alive”
+		dead = [],//存放被杀玩家的下标的数组
+		voted = [],//存放被投死的玩家的下标的数组
+		playdays = 1;//记录所玩的天数
+	sessionStorage.setItem("playstate", "alive");
 	sessionStorage.setItem("dead", JSON.stringify(dead));
 	sessionStorage.setItem("voted", JSON.stringify(voted));
 	sessionStorage.setItem("playdays", JSON.parse(playdays));
+	console.log(playRole.length);
+	console.log(playRole);
 	// alert(typeof playdays);传递数字类数据的时候最好用JSON
 	//构造函数，将玩家的身份 序号 状态存为一个完整的对象并存入数组rolersArr中。
 	var Roler = function (rolersId,rolersNum,rolersState) {//这是一个函数，没有内容。

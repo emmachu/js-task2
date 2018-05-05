@@ -1,18 +1,18 @@
 $(document).ready(function() {
-	var killerNum = parseInt(sessionStorage.getItem("killerNum"));
-	var citizenNum = parseInt(sessionStorage.getItem("citizenNum"));
-	var playdays = sessionStorage.getItem("playdays");
+	var killerNum = parseInt(sessionStorage.getItem("killerNum")),
+		citizenNum = parseInt(sessionStorage.getItem("citizenNum")),
+		playdays = sessionStorage.getItem("playdays"),
+		playstate = sessionStorage.getItem("playstate"),
+		rolersArr = JSON.parse(sessionStorage.getItem("rolersArr")),
+		index = undefined,//用来存储被选中的玩家的下标。
+		selected = 0,//如果有玩家被选中，则变为1，如果没有选中则变为2.
+		dead = JSON.parse(sessionStorage.getItem("dead")),//获取被杀玩家的数组，内容是玩家对象。
+		voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
 	console.log("幽灵人数" + killerNum);
 	console.log("水民人数" + citizenNum);
 	console.log("当前天数" + playdays);
-	var playstate = sessionStorage.getItem("playstate");
 	console.log(playstate);
-	var rolersArr = JSON.parse(sessionStorage.getItem("rolersArr"));
 	console.log(rolersArr);
-	var index = undefined;//用来存储被选中的玩家的下标。
-	var selected = 0;//如果有玩家被选中，则变为1，如果没有选中则变为2.
-	var dead = JSON.parse(sessionStorage.getItem("dead"));//获取被杀玩家的数组，内容是玩家对象。
-	var voted = JSON.parse(sessionStorage.getItem("voted"));//获取被投死的玩家的数组，内容是玩家对象。
 	console.log(dead);
 	for (var i = 0; i < rolersArr.length; i++) {
 		$(".innerbox").append(
@@ -69,15 +69,15 @@ $(document).ready(function() {
 								window.location.href = "task2-5.html";
 							}	
 						}
-					}else if (rolersArr[index].id == "幽灵") {
+					}else {
 						alert("是自己人，请重新选择！")
 					}
-				}else if (rolersArr[index].state == "steptwo" || rolersArr[index].state == "stepfour") {
+				}else {
 					alert("该玩家已经死亡，请重新选择！");
 				}
 			}else if (playstate == "stepfour") {
-				var b = confirm("确定要投死他吗？");
 				if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour") {
+					var b = confirm("确定要投死他吗？");
 					if (rolersArr[index].id == "水民") {
 						if (b == true) {
 							rolersArr[index].state = "stepfour";
@@ -102,7 +102,7 @@ $(document).ready(function() {
 								window.location.href = "task2-5.html";
 							}
 						}
-					}else if (rolersArr[index].id == "幽灵") {
+					}else {
 						if (b == true) {
 							rolersArr[index].state = "stepfour";
 							console.log(rolersArr[index].state);
@@ -127,11 +127,11 @@ $(document).ready(function() {
 							}
 						}
 					}
-				}else if (rolersArr[index].state == "steptwo" || rolersArr[index].state == "stepfour") {
+				}else {
 					alert("该玩家已经死亡，请重新选择！");
 				}
 			}
-		}else if (selected == 0) {
+		}else {
 			if (playstate == "stepone") {
 				var c = confirm("确定此轮不杀人吗");
 				if (c == true) {
@@ -146,6 +146,16 @@ $(document).ready(function() {
 			}
 		}
 	});
+	//不杀人不让按浏览器按钮返回上一页。
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+            window.history.pushState('forward', null, '#');
+            window.history.forward(1);
+            alert("请杀人！！");
+        });
+      }
+      window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+      window.history.forward(1);
 	//在杀人投票页面中为已经死亡的角色添加背景颜色。
 	for (var i = 0; i < rolersArr.length; i++) {
 		if (rolersArr[i].state == "steptwo" || rolersArr[i].state == "stepfour") {
@@ -154,12 +164,6 @@ $(document).ready(function() {
 			}
 		}
 	//顶部按钮
-	$(".back").click(function(){
-		var choice = confirm("确定要返回上一页吗？");
-		if (choice == true){
-			window.location.href = "task2-5.html";
-		}
-	});
 	$(".quit").click(function(){
 		var choice = confirm("确定要关闭游戏页面吗？");
 		if (choice == true){
