@@ -176,9 +176,12 @@ body{
 	margin: 0 .5rem;
 	appearance: none;
 	-webkit-appearance: none;
-	background-color: #fab344;
+	// background-color: #fab344;
 	background-position: center;
 	outline: 0;
+
+	background: linear-gradient(to right, #fab344, #ddd) no-repeat, #ddd;
+    background-size: 28% 100%;
 }
 input[type="range"]::-webkit-slider-thumb{
 	width: 2.8rem;
