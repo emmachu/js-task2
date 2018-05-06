@@ -44,7 +44,7 @@ $(document).ready(function() {
 		console.log("是否被选中" + selected);
 		console.log("玩家下标" + index);
 		if (selected != 0) {
-			if (playstate == "stepone") {
+			if (playstate == "alive") {
 				if (rolersArr[index].state != "steptwo" && rolersArr[index].state != "stepfour"){
 					if (rolersArr[index].id == "水民") {
 						var a = confirm("确定杀掉他吗？");
@@ -132,7 +132,7 @@ $(document).ready(function() {
 				}
 			}
 		}else {
-			if (playstate == "stepone") {
+			if (playstate == "alive") {
 				var c = confirm("确定此轮不杀人吗");
 				if (c == true) {
 					dead.push("nokill");
@@ -147,15 +147,15 @@ $(document).ready(function() {
 		}
 	});
 	//不杀人不让按浏览器按钮返回上一页。
-    if (window.history && window.history.pushState) {
-        $(window).on('popstate', function () {
-            window.history.pushState('forward', null, '#');
-            window.history.forward(1);
-            alert("请杀人！！");
-        });
-      }
-      window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
-      window.history.forward(1);
+    // if (window.history && window.history.pushState) {
+    //     $(window).on('popstate', function () {
+    //         window.history.pushState('forward', null, '#');
+    //         window.history.forward(1);
+    //         alert("请杀人！！");
+    //     });
+    //   }
+    //   window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+    //   window.history.forward(1);
 	//在杀人投票页面中为已经死亡的角色添加背景颜色。
 	for (var i = 0; i < rolersArr.length; i++) {
 		if (rolersArr[i].state == "steptwo" || rolersArr[i].state == "stepfour") {

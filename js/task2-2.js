@@ -25,6 +25,16 @@ $(document).ready(function () {
 				rangeNum.val(4);
 				inputValue.val(4);
 			}
+			//计算滑动条左侧的百分比长度
+			function per(num1,num2){
+				var aa = parseInt((num1/num2)*100);
+				return(aa);
+			}
+			var oldV = rangeNum.val();
+			var bb = oldV - 4;
+			var per = per(bb, 14) + "%";
+			//改变左侧的颜色
+			$("#range").css("background-size", per + "100%");
 		})
 		//在玩家数量正确的时候，用blur事件给玩家进行配比
 		$("#set").click(function () {
@@ -65,6 +75,16 @@ $(document).ready(function () {
 				inputValue.val(4);
 				rangeNum.val(4);
 			}
+			//计算滑动条左侧的百分比长度
+			function per(num1,num2){
+				var aa = parseInt((num1/num2)*100);
+				return(aa);
+			}
+			var oldV = rangeNum.val();
+			var bb = oldV - 4;
+			var per = per(bb, 14) + "%";
+			//改变左侧的颜色
+			$("#range").css("background-size", per + "100%");
 		})
 		//点击加号
 		$("#add").click(function () {
@@ -77,12 +97,31 @@ $(document).ready(function () {
 				inputValue.val(18);
 				rangeNum.val(18);
 			}
+			//计算滑动条左侧的百分比长度
+			function per(num1,num2){
+				var aa = parseInt((num1/num2)*100);
+				return(aa);
+			}
+			var bb = oldV - 4;
+			var per = per(bb, 14) + "%";
+			//改变左侧的颜色
+			$("#range").css("background-size", per + "100%");
 		})
 		//滑动滑块来改变数字
 		$("#range").change(function () {
 			var oldV = rangeNum.val();
 			inputValue.val(oldV);
+			//计算滑动条左侧的百分比长度
+			function per(num1,num2){
+				var aa = parseInt((num1/num2)*100);
+				return(aa);
+			}
+			var bb = oldV - 4;
+			var per = per(bb, 14) + "%";
+			//改变左侧的颜色
+			$("#range").css("background-size", per + "100%");
 		})
+		
 		//判断可以发牌的所有条件
 		$("#button").click(function (){
 			var pattern = /^[\u4e00-\u9fa5]*$/,

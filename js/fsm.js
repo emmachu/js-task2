@@ -9,7 +9,7 @@ $(document).ready(function() {
 		rolerKill : function() {
 			switch (fsm.state){
 				case "alive":
-				sessionStorage.setItem("playstate", "stepone");
+				// sessionStorage.setItem("playstate", "stepone");
 				window.location.href = "task2-6.html";
 				break;
 				case "steptwo":
@@ -36,7 +36,6 @@ $(document).ready(function() {
 				alert("请勿重复操作!");
 				break;
 				case "alive":
-				case "stepone":
 				case "stepfour":
 				alert("请按顺序操作!");
 				break;
@@ -56,7 +55,6 @@ $(document).ready(function() {
 				alert("请勿重复操作!");
 				break;
 				case "alive":
-				case "stepone":
 				case "steptwo":
 				alert("请按顺序操作!");
 				break;
@@ -71,7 +69,6 @@ $(document).ready(function() {
 				$(".rolerVote").css("background-color", "#83b09a");
 				break;
 				case "alive":
-				case "stepone":
 				case "steptwo":
 				case "stepthree":
 				alert("请按顺序操作!");
